@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillX+ | Learn Without Money. Teach What You Know.</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🔄</span>
+                <span class="logo-text">SkillX<span class="plus">+</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active" data-page="home">Home</a>
+                <a href="#browse" class="nav-link" data-page="browse">Browse Skills</a>
+                <a href="#requests" class="nav-link" data-page="requests">Requests</a>
+                <a href="#about-us-page" class="nav-link" data-page="about-us">About Us</a>
+            </div>
+            <div class="nav-actions">
+                <div class="credit-badge">
+                    <span class="credit-icon">⭐</span>
+                    <span id="userCredits">0</span> Credits
+                </div>
+                <button class="btn btn-primary" id="createProfileBtn">Get Started</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Page -->
+        <section id="home-page" class="page active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <div class="hero-badge">Learner Community</div>
+                    <h1 class="hero-title">
+                        Learn Without Money.<br>
+                        <span class="gradient-text">Teach What You Know.</span>
+                    </h1>
+                    <p class="hero-subtitle">AI-powered student skill exchange platform. Trade your knowledge, earn credits, grow together.</p>
+                    <div class="hero-actions">
+                        <button class="btn btn-large btn-primary" id="heroGetStarted">Create Profile</button>
+                        <button class="btn btn-large btn-secondary" id="heroBrowseSkills">Browse Skills</button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number" id="totalStudents">127</div>
+                            <div class="stat-label">Students</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number" id="totalSkills">43</div>
+                            <div class="stat-label">Skills</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number" id="totalSwaps">89</div>
+                            <div class="stat-label">Successful Swaps</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-card card-1">
+                        <div class="skill-tag tech">Python</div>
+                        <div class="skill-level">Advanced</div>
+                    </div>
+                    <div class="floating-card card-2">
+                        <div class="skill-tag design">Canva</div>
+                        <div class="skill-level">Intermediate</div>
+                    </div>
+                    <div class="floating-card card-3">
+                        <div class="skill-tag language">Spanish</div>
+                        <div class="skill-level">Beginner</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features-section">
+                <h2 class="section-title">How It Works</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">👤</div>
+                        <h3>Create Profile</h3>
+                        <p>List skills you can teach and want to learn</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤖</div>
+                        <h3>AI Matching</h3>
+                        <p>Get matched based on skills, level & availability</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Skill Exchange</h3>
+                        <p>1 hour teaching = 1 credit to learn</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⭐</div>
+                        <h3>Build Reputation</h3>
+                        <p>Rate sessions and earn peer reviews</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Browse Skills Page -->
+        <section id="browse-page" class="page">
+            <div class="page-header">
+                <h1 class="page-title">Browse Available Skills</h1>
+                <p class="page-subtitle">Find students who can teach you what you want to learn</p>
+            </div>
+
+            <div class="browse-controls">
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search for skills... (e.g., Python, Guitar, Spanish)" class="search-input">
+                    <button class="search-btn">🔍</button>
+                </div>
+                
+                <div class="filters">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="">All Categories</option>
+                        <option value="tech">💻 Tech & Programming</option>
+                        <option value="design">🎨 Design & Creative</option>
+                        <option value="language">🌍 Languages</option>
+                        <option value="music">🎵 Music</option>
+                        <option value="marketing">📱 Marketing</option>
+                        <option value="other">📚 Other</option>
+                    </select>
+                    
+                    <select id="levelFilter" class="filter-select">
+                        <option value="">All Levels</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+
+                    <select id="availabilityFilter" class="filter-select">
+                        <option value="">Any Time</option>
+                        <option value="morning">Morning</option>
+                        <option value="evening">Evening</option>
+                        <option value="weekend">Weekend</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="skillsList" class="skills-grid">
+                <!-- Skills will be dynamically loaded here -->
+            </div>
+        </section>
+
+        <!-- Profile Page -->
+        <section id="profile-page" class="page">
+            <div id="createProfileSection" class="profile-create">
+                <h1 class="page-title">Create Your Profile</h1>
+                <p class="page-subtitle">Tell us about yourself and start skill swapping!</p>
+                
+                <form id="profileForm" class="profile-form">
+                    <div class="form-section">
+                        <h3 class="form-section-title">Basic Information</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="userName">Name *</label>
+                                <input type="text" id="userName" required placeholder="Your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="userYear">Year *</label>
+                                <select id="userYear" required>
+                                    <option value="">Select year</option>
+                                    <option value="1st">1st Year</option>
+                                    <option value="2nd">2nd Year</option>
+                                    <option value="3rd">3rd Year</option>
+                                    <option value="4th">4th Year</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="userCollege">College     *</label>
+                                <select id="userCollege" required>
+                                    <option value="">Select College</option>
+                                    <option value="IGDTUW">IGDTUW</option>
+                                    <option value="DTU">DTU</option>
+                                    <option value="NSUT">NSUT</option>
+                                    <option value="RTU">RTU KOTA</option>
+                                    <option value="GGSIPU">GGSIPU</option>
+                                    <option value="IITDELHI">IIT DELHI</option>
+                                </select>
+                            </div>
+                             <div class="form-group">
+                                <div class="document-verification">
+                                    <label for="userDocument">Upload ID (for verification) *</label>
+                                    <input type="file" id="userDocument" accept=".jpg,.jpeg,.png,.pdf" required>
+                                </div>
+                            </div>
+                             <div class="form-group">
+                                <label for="userEmail">E-mail *</label>
+                                <input type="email" id="userEmail" required placeholder="Your email address">
+                            </div>
+                             <div class="form-group">
+                                <label for="userPhone">Phone Number *</label>
+                                <input type="tel" id="userPhone" required placeholder="Your phone number">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="userBio">Bio *</label>
+                            <textarea id="userBio" rows="3" required placeholder="Tell us a bit about yourself..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title">Availability</h3>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="availability" value="morning"> Morning (6 AM - 12 PM)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="availability" value="afternoon"> Afternoon (12 PM - 6 PM)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="availability" value="evening"> Evening (6 PM - 10 PM)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="availability" value="weekend"> Weekends
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title">Skills I Can Teach</h3>
+                        <div id="teachSkillsContainer">
+                            <div class="skill-input-group">
+                                <input type="text" class="skill-name" placeholder="Skill name (e.g., Python)">
+                                <select class="skill-category">
+                                    <option value="">Category</option>
+                                    <option value="tech">Tech</option>
+                                    <option value="design">Design</option>
+                                    <option value="language">Language</option>
+                                    <option value="music">Music</option>
+                                    <option value="marketing">Marketing</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <select class="skill-level">
+                                    <option value="">Level</option>
+                                    <option value="beginner">Beginner</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                                <button type="button" class="btn-icon remove-skill" title="Remove">❌</button>
+                            </div>
+                        </div>
+                        <button type="button" id="addTeachSkill" class="btn btn-secondary btn-small">+ Add Skill</button>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title">Skills I Want to Learn</h3>
+                        <div id="learnSkillsContainer">
+                            <div class="skill-input-group">
+                                <input type="text" class="skill-name" placeholder="Skill name (e.g., Guitar)">
+                                <select class="skill-category">
+                                    <option value="">Category</option>
+                                    <option value="tech">Tech</option>
+                                    <option value="design">Design</option>
+                                    <option value="language">Language</option>
+                                    <option value="music">Music</option>
+                                    <option value="marketing">Marketing</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <select class="skill-level">
+                                    <option value="">Desired Level</option>
+                                    <option value="beginner">Beginner</option>
+                                    <option value="intermediate">Intermediate</option>
+                                    <option value="advanced">Advanced</option>
+                                </select>
+                                <button type="button" class="btn-icon remove-skill" title="Remove">❌</button>
+                            </div>
+                        </div>
+                        <button type="button" id="addLearnSkill" class="btn btn-secondary btn-small">+ Add Skill</button>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large">Create Profile</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="viewProfileSection" class="profile-view" style="display: none;">
+                <!-- Profile view will be shown after creation -->
+            </div>
+        </section>
+
+        <!-- Requests Page -->
+        <section id="requests-page" class="page">
+            <div class="page-header">
+                <h1 class="page-title">Skill Exchange Requests</h1>
+                <p class="page-subtitle">Manage your incoming and outgoing requests</p>
+            </div>
+
+            <div class="requests-tabs">
+                <button class="tab-btn active" data-tab="received">Received</button>
+                <button class="tab-btn" data-tab="sent">Sent</button>
+            </div>
+
+            <div id="receivedRequests" class="requests-container tab-content active">
+                <!-- Received requests will be loaded here -->
+            </div>
+
+            <div id="sentRequests" class="requests-container tab-content">
+                <!-- Sent requests will be loaded here -->
+            </div>
+        </section>
+
+        <!-- About Us Page -->
+        <section id="about-us-page" class="page">
+            <div class="page-header">
+                <h1 class="page-title">About SkillX+</h1>
+                <p class="page-subtitle">Our mission, vision, and the team behind the platform</p>
+            </div>
+
+            <div class="about-hero">
+                <div class="about-hero-content">
+                    <h2>Revolutionizing Education Through Peer Learning</h2>
+                    <p>SkillX+ was born from a simple idea: what if students could teach each other the skills they need, creating a self-sustaining ecosystem of knowledge exchange?</p>
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <div class="stat-number">2024</div>
+                            <div class="stat-label">Founded</div>
+                        </div>
+                        <div class="about-stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Active Students</div>
+                        </div>
+                        <div class="about-stat">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Skills Exchanged</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-hero-visual">
+                    <div class="floating-elements">
+                        <div class="floating-element elem-1">🎯 DESIGNING</div>
+                        <div class="floating-element elem-2">🚀 TECHNOLOGY</div>
+                        <div class="floating-element elem-3">💡 ACADEMIC STUDY</div>
+                        <div class="floating-element elem-4">🌟 HOBBIES</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <div class="mission-vision-grid" >
+                    <div class="mission-card box-view">
+                        <h2>Our Mission</h2>
+                        <p>At SkillX+, we believe that everyone has something valuable to teach and learn. Our mission is to create a vibrant community where students can exchange their skills and knowledge without any financial barriers. We aim to empower learners to grow together, build meaningful connections, and foster a culture of continuous learning.</p>
+                    </div>
+
+                    <div class="vision-card box-view">
+                        <h2>Our Vision</h2>
+                        <p>We envision a world where learning is accessible to all, regardless of their background or resources. By leveraging AI technology, we strive to create personalized learning experiences that connect students based on their unique skills, interests, and availability. Our goal is to become the go-to platform for skill exchange among students worldwide.</p>
+                    </div>
+                </div>
+
+                <div class="values-section">
+                    <h2>Our Core Values</h2>
+                    <div class="values-grid box-view">
+                        <div class="value-card">
+                            <div class="value-icon">🤝</div>
+                            <h3>Collaboration</h3>
+                            <p>We believe in the power of peer-to-peer learning and mutual growth.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">🎓</div>
+                            <h3>Accessibility</h3>
+                            <p>Education should be free and available to everyone, everywhere.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">💡</div>
+                            <h3>Innovation</h3>
+                            <p>We continuously evolve our platform using cutting-edge technology.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">🌍</div>
+                            <h3>Community</h3>
+                            <p>Building strong connections that last beyond skill exchanges.</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <h2 class="team-meet">Meet the Team</h2>
+                <div class="team-grid team-section">
+                    <div class="team-member box-view">
+                        <div class="member-avatar">👩‍💻</div>
+                        <h3>Naresh Kumar Regar</h3>
+                        <p class="member-bio">Student at Rajasthan Technical University | Full stack developer | Tech Enthusiast</p>
+                        <div class="member-skills">
+                            <span class="skill-tag tech">HTML</span>
+                            <span class="skill-tag tech">CSS</span>
+                            <span class="skill-tag tech">JS</span>
+                        </div>
+                    </div>
+                    <div class="team-member box-view">
+                        <div class="member-avatar">👨‍🎨</div>
+                        <h3>Subrata Mukherjee</h3>
+                        <p class="member-bio">Student at Rajasthan Technical University | Cyber security Student| Python Developer | Linux | Tech Enthusiast | Prompt Engineer</p>
+                        <div class="member-skills">
+                            <span class="skill-tag tech">LINUX</span>
+                            <span class="skill-tag tech">PYTHON</span>
+                        </div>
+                    </div>
+                    <div class="team-member box-view">
+                        <div class="member-avatar ">👩‍🎓</div>
+                        <h3>Prakhar Srivastava</h3>
+                        <p class="member-bio">Student at Rajasthan Technical University | Data Science Student| Python Developer | Tech Enthusiast</p>
+                        <div class="member-skills">
+                            <span class="skill-tag marketing">DATA SCIENCE</span>
+                            <span class="skill-tag language">AI/ML</span>
+                        </div>
+                    </div>
+                    <div class="team-member box-view">
+                        <div class="member-avatar">👨‍🔬</div>
+                        <h3>Upasana Khanna</h3>
+                        <p class="member-bio">Student at IGDTUW | ECE-Ai | Html | CSS | Tech Enthusiast</p>
+                        <div class="member-skills">
+                            <span class="skill-tag tech">HTML</span>
+                            <span class="skill-tag tech">CSS</span>
+                        </div>
+                    </div>
+                    <div class="team-member box-view">
+                        <div class="member-avatar">👨‍🔬</div>
+                        <h3>Shreya Kumari</h3>
+                        <p class="member-bio">Student at IGDTUW | ECE-Ai | Html | CSS | Tech Enthusiast</p>
+                        <div class="member-skills">
+                               <span class="skill-tag tech">HTML</span>
+                            <span class="skill-tag tech">CSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonials-section">
+                    <h2 class="team-meet">What Our Community Says</h2>
+                    <div class="testimonials-grid box-view">
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                "SkillX+ completely changed how I approach learning. I've learned guitar from a classmate and taught Python to 5 different students. The community is amazing!"
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">🎸</div>
+                                <div class="author-info">
+                                    <div class="author-name">Priya Sharma</div>
+                                    <div class="author-role">Computer Science Student</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                "As someone who loves teaching, SkillX+ gave me the perfect platform to share my knowledge while learning new skills. The AI matching is spot-on!"
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">🎨</div>
+                                <div class="author-info">
+                                    <div class="author-name">Rahul Verma</div>
+                                    <div class="author-role">Design Student</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            "The credit system makes everything fair and encourages quality teaching. I've gained so much confidence through this platform."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">🌍</div>
+                            <div class="author-info">
+                                <div class="author-name">Sofia Rodriguez</div>
+                                <div class="author-role">Language Student</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Page Footer -->
+    <footer class="footer" id="footer"+>
+        <div class="footer-container">
+            <div class="footer-section brand">
+                <div class="footer-logo">
+                    <span class="logo-icon">🔄</span>
+                    <span class="logo-text">SkillX<span class="plus">+</span></span>
+                </div>
+                <p class="footer-desc">SkillX+ is a student-driven skill exchange platform built to make learning accessible, collaborative, and practical — without money being a barrier.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <div class="footer-links-col">
+                    <a href="#home" class="footer-link">Home</a>
+                    <a href="#browse" class="footer-link">Browse Skills</a>
+                    <a href="#requests" class="footer-link">Requests</a>
+                    <a href="#about-us-page" class="footer-link">About Us</a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">Get in Touch</h3>
+                <a href="mailto:contact@SkillX.com" class="footer-contact-item">
+                    📧 contact@SkillX.com
+                </a>
+                <div class="footer-socials">
+                    <a href="#" class="social-icon">🐦</a>
+                    <a href="#" class="social-icon">📷</a>
+                    <a href="#" class="social-icon">💼</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 SkillX+. Made with <span class="heart-pulse">❤️</span> for Students.</p>
+        </div>
+    </footer>
+        </section>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
