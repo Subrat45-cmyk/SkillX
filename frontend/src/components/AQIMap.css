@@ -1,0 +1,169 @@
+.aqi-map-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.map-header {
+  background: white;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.map-header h1 {
+  margin: 0;
+  color: #333;
+  font-size: 2em;
+}
+
+.map-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.style-btn {
+  padding: 10px 15px;
+  border: 2px solid #4ECDC4;
+  background: white;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.style-btn:hover,
+.style-btn.active {
+  background: #4ECDC4;
+  color: white;
+}
+
+.marker {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 69, 0, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(255, 69, 0, 0);
+  }
+}
+
+.popup-content {
+  padding: 15px;
+  font-family: Arial, sans-serif;
+}
+
+.popup-content h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.popup-content p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.recommendations {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+.recommendations strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.recommendations ul {
+  margin: 5px 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.recommendations li {
+  margin: 3px 0;
+  color: #666;
+  text-transform: capitalize;
+}
+
+.recommendations li:before {
+  content: "✓ ";
+  color: #4ECDC4;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.hotspots-list {
+  padding: 20px;
+  background: white;
+  border-top: 1px solid #eee;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.hotspots-list h3 {
+  margin: 0 0 15px 0;
+  color: #333;
+}
+
+.hotspots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+}
+
+.hotspot-card {
+  border-left: 5px solid #ddd;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.hotspot-card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.hotspot-rank {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.hotspot-card h4 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.hotspot-card p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}

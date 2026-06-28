@@ -1,0 +1,192 @@
+.dashboard {
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-header h1 {
+  font-size: 2.5em;
+  color: #333;
+  margin: 0;
+}
+
+.time-select {
+  padding: 10px 15px;
+  border: 2px solid #4ECDC4;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.time-select:hover {
+  background: #f0f0f0;
+}
+
+.aqi-card {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.aqi-value-display {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  width: 100%;
+}
+
+.aqi-circle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.aqi-number {
+  font-size: 3em;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.aqi-info h2 {
+  margin: 0 0 10px 0;
+  color: #333;
+  font-size: 2em;
+}
+
+.advisory {
+  color: #666;
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
+.confidence {
+  color: #999;
+  font-size: 0.95em;
+  margin: 10px 0 0 0;
+}
+
+.charts-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.chart-box {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.chart-box h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.predictions-list {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.predictions-list h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.predictions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.prediction-card {
+  border-left: 5px solid #ddd;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.prediction-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pred-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.pred-date {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.pred-category {
+  padding: 5px 10px;
+  border-radius: 3px;
+  color: white;
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
+.pred-value {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #333;
+  margin: 10px 0;
+}
+
+.pred-confidence {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+  .charts-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .aqi-value-display {
+    flex-direction: column;
+  }
+  
+  .dashboard-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
